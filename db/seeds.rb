@@ -16,7 +16,7 @@
     phone_number: phone_number,
     category: %w[chinese italian japanese french belgian].sample
   )
-  rand(3..10).times do
+  rand(2..6).times do
     rating = rand(0..5)
     content = Faker::Restaurant.review
     Review.create(
