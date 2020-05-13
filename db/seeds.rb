@@ -10,10 +10,19 @@
   name = Faker::Restaurant.name
   address = Faker::Address.full_address
   phone_number = Faker::PhoneNumber.cell_phone
-  Restaurant.create(
+  restaurant = Restaurant.create(
     name: name,
     address: address,
     phone_number: phone_number,
     category: %w[chinese italian japanese french belgian].sample
   )
+  rand(3..10).times do
+    rating = rand(0..5)
+    content = Faker::Restaurant.review
+    Review.create(
+      rating: rating,
+      content: content,
+      restaurant: restaurant
+    )
+  end
 end
